@@ -41,15 +41,15 @@ jobs:
       - name: Get repository code
         uses: actions/checkout@v3
       - name: Show tag
-        run: echo "TAG -> ${{ GITHUB_REF_NAME }}"
+        run: echo "TAG -> ${{ GITHUB.REF_NAME }}"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ GITHUB_REF_NAME }}
-          release_name: Release ${{ GITHUB_REF_NAME }}
+          tag_name: ${{ GITHUB.REF_NAME }}
+          release_name: Release ${{ GITHUB.REF_NAME }}
           draft: false
           prerelease: false
 
